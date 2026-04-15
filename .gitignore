@@ -1,0 +1,5 @@
+.streamlit/secrets.toml
+__pycache__/
+*.fit
+temp_ride.fit
+.DS_Store
