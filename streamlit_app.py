@@ -38,7 +38,7 @@ st.markdown("""
 
     /* Input Area Styling */
     .stFileUploader { background-color: #1c222d; border-radius: 12px; border: 1px dashed #4e545e; }
-    .stTextArea textarea { background-color: #1c222d; color: white; border: 1px solid #2d343f; }
+    .stTextArea textarea { background-color: #1c222d !important; color: white !important; border: 1px solid #2d343f !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -77,6 +77,9 @@ if uploaded_file:
         all_cards.extend(RouteAnalysisLauncher.get_cards("temp_ride.fit"))
         all_cards.extend(WeatherAnalysisLauncher.get_cards("temp_ride.fit"))
 
+        # Optional: Sync to Sheets
+        # export_to_google_drive(all_cards, user_notes)
+
         # --- 3. RENDERING ENGINE (V3.0 SPEC) ---
 
         # A. Key Metric Matrix (3-Column Grid)
@@ -92,7 +95,8 @@ if uploaded_file:
         # B. Tables, Charts, and Visualization
         for card in all_cards:
             if card['type'] == 'table':
-                st.markdown(f<div class='section-header'>{card['title']}</div>", unsafe_allow_html=True)
+                # FIXED: Added missing quote here
+                st.markdown(f"<div class='section-header'>{card['title']}</div>", unsafe_allow_html=True)
                 st.dataframe(pd.DataFrame(card['rows'], columns=card['columns']), use_container_width=True)
 
             elif card['type'] == 'chart_line':
