@@ -1,5 +1,31 @@
+# --- Sensitive Credentials ---
+*.json
 .streamlit/secrets.toml
-__pycache__/
+
+# --- Personal Cycling Data ---
+# This ignores all data files by default
 *.fit
-temp_ride.fit
+*.csv
+*.tcx
+*.gpx
+
+# --- Pitch Samples (EXCEPTIONS) ---
+# This allows you to include a file named 'sample_ride.fit' for the demo
+!*sample*.fit
+!*sample*.csv
+
+# --- Python Environment & Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+env/
+.pytest_cache/
+
+# --- Operating System Junk ---
 .DS_Store
+Thumbs.db
+
+# --- Streamlit Specific ---
+.streamlit/config.toml
