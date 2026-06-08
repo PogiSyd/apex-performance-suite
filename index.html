@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Bobby Khan — CV</title>
+<style>
+  :root {
+    --ink: #0F1F35;
+    --ink-soft: #3B4A60;
+    --ink-muted: #6B7689;
+    --paper: #FAFAF7;
+    --paper-soft: #F2F1EC;
+    --rule: #D8D5CC;
+    --accent: #1F3A5F;
+    --accent-soft: #E8EEF5;
+    --highlight: #B8860B;
+    --serif: Georgia, 'Times New Roman', 'Liberation Serif', serif;
+    --sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+    padding: 48px 24px 96px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--paper);
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
+  }
+  h1.name {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .contact {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  .contact a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Hidden checkbox - drives CSS-only toggle. Default checked = Claims mode. */
+  #viewToggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+  }
+
+  /* Toggle bar */
+  .toggle-bar {
+    background: var(--paper-soft);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .toggle-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    flex: 1;
+    min-width: 200px;
+  }
+  .toggle-label .strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* Pill switch — pure CSS, label-driven */
+  .toggle-pill {
+    display: inline-flex;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 2px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+  .toggle-pill .opt {
+    padding: 7px 18px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    transition: color 0.2s ease;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+  }
+  .toggle-pill::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    /* Default: checkbox unchecked = Track Record = slider left */
+    left: 2px;
+    width: calc(50% - 2px);
+  }
+  /* Checked = AI Method = slider right */
+  #viewToggle:checked ~ .toggle-bar .toggle-pill::before {
+    left: 50%;
+  }
+  #viewToggle:not(:checked) ~ .toggle-bar .toggle-pill .opt-track { color: white; }
+  #viewToggle:checked ~ .toggle-bar .toggle-pill .opt-ai { color: white; }
+
+  /* Save PDF button */
+  .print-button {
+    background: white;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    padding: 7px 14px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .print-button:hover, .print-button:active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .print-button::before {
+    content: '⤓';
+    font-size: 14px;
+  }
+
+  /* Section headings */
+  h2 {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--accent);
+  }
+  section { margin-bottom: 36px; }
+
+  /* Body content */
+  p { margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+  .lead {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* AI-method use-case blocks — shown only when checkbox checked (AI Method mode) */
+  .ai-method {
+    display: none;
+    color: var(--ink-soft);
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    padding: 9px 13px;
+    margin: 8px 0 6px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 0 3px 3px 0;
+  }
+  .ai-method .ai-tag {
+    display: inline-block;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--accent);
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: 1px;
+  }
+  .ai-method .ai-outcome {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 12.5px;
+  }
+  /* Profile-level bridge (lead paragraph) — always visible (both views) */
+  .bridge {
+    font-style: italic;
+    color: var(--ink-soft);
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    padding: 8px 12px;
+    margin: 8px 0 4px 0;
+    font-size: 13.5px;
+    border-radius: 0 3px 3px 0;
+  }
+  #viewToggle:checked ~ .page .ai-method { display: block; }
+
+  /* Always-visible variant of the AI method box (real, delivered work —
+     e.g. Cheetah Squad), shown in both Track Record and AI Method views.
+     Higher specificity than .ai-method so it overrides the hide rules. */
+  .ai-method.always { display: block !important; }
+
+  /* Cheetah Squad delivery callouts (Toolkit / Method / Outcome) — always
+     visible, blue shade, each led by a bold all-caps heading. */
+  .cs-callout {
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    padding: 9px 13px;
+    margin: 8px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    border-radius: 0 3px 3px 0;
+  }
+  .cs-callout .cs-head {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  /* Method outcomes */
+  .outcome {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* Method mini-diagram */
+  .method-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 16px 0 8px;
+    padding: 14px 12px;
+    background: var(--paper-soft);
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+  .method-diagram .step {
+    padding: 5px 12px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .method-diagram .arrow {
+    color: var(--ink-muted);
+    font-size: 14px;
+  }
+  .method-diagram .overlay {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+    font-style: italic;
+  }
+
+  /* Pipe-list */
+  .pipe-list {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* Career history */
+  .role {
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+  }
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .role-title {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .role-dates {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+  .role-sub {
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  ul { list-style: none; padding-left: 0; }
+  li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  li::before {
+    content: '·';
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    font-size: 18px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Collapsible older roles */
+  details {
+    margin-top: 12px;
+    border-top: 1px dashed var(--rule);
+    padding-top: 16px;
+  }
+  details summary {
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 6px 0;
+    list-style: none;
+    user-select: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: ' ▾';
+    display: inline-block;
+  }
+  details[open] summary::after { content: ' ▴'; }
+  details[open] summary { margin-bottom: 16px; }
+
+  /* Cheetah box */
+  .cheetah-box {
+    border-left: 2px solid var(--accent);
+    padding-left: 14px;
+    margin-top: 10px;
+  }
+  .cheetah-title {
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .linkedin-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    letter-spacing: 0.02em;
+  }
+  .linkedin-link:hover { color: var(--highlight); border-bottom-color: var(--highlight); }
+  .linkedin-link::after { content: ' →'; }
+
+  /* Education */
+  .education-line {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 60px; font-size: 13.5px; }
+    h1.name { font-size: 28px; }
+    .toggle-bar { flex-direction: column; align-items: stretch; }
+    .toggle-label { text-align: center; }
+    .toggle-pill, .print-button { align-self: center; }
+    .role-header { flex-direction: column; gap: 2px; }
+  }
+
+  /* Print */
+  @media print {
+    body { padding: 0; background: white; font-size: 10pt; }
+    .page { max-width: none; }
+    /* Only the CV itself prints. Anything else at body level — the toggle
+       bar, or an overlay injected by a browser extension / app wrapper such
+       as a "Store Info / Account" widget — is stripped from the PDF. */
+    body > *:not(.page) { display: none !important; }
+    .toggle-bar { display: none; }
+    .print-button { display: none; }
+
+    /* AI Method simulations (role-level "what I would have done" callouts)
+       stay OUT of the PDF by default; included only in AI Method view.
+       Bridges and .always boxes are real content and always print. */
+    .ai-method { display: none !important; }
+    html.print-ai .ai-method,
+    #viewToggle:checked ~ .page .ai-method { display: block !important; }
+
+    details { border-top: none; padding-top: 0; }
+    /* Force the "Earlier career" fold fully open in print, regardless of its
+       on-screen open/closed state, on every engine. */
+    details > *:not(summary) { display: block !important; content-visibility: visible !important; }
+    details summary { display: none; }
+
+    /* Only protect small, self-contained blocks from splitting.
+       Sections and the tall boxes are allowed to flow across page
+       boundaries — this is what prevents the half-empty first page
+       on iOS Safari, which reserves the full height of any avoid block. */
+    .role, .ai-method, .bridge, .method-diagram, .cs-callout { page-break-inside: avoid; }
+    /* In AI Method mode each role grows tall (bullets + AI callouts), so
+       keeping a whole role together would strand a page. Let roles and the
+       diagram flow across pages; the AI callout boxes stay intact on their own. */
+    html.print-ai .role,
+    html.print-ai .method-diagram,
+    #viewToggle:checked ~ .page .role,
+    #viewToggle:checked ~ .page .method-diagram { page-break-inside: auto; }
+    h2 { page-break-after: avoid; }
+    .method-diagram { background: white; }
+    a { color: var(--ink); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hidden checkbox. Default unchecked = Track Record view. Checked = AI Method (use cases shown). -->
+<input type="checkbox" id="viewToggle">
+
+<div class="toggle-bar" role="region" aria-label="View toggle">
+  <div class="toggle-label">
+    <span class="strong">Reading view:</span> <span class="strong">Track Record</span> shows what I delivered. <span class="strong">AI Method</span> reveals, across my historical roles, the use cases I would have resolved with AI — for quality outcomes, at rapid pace, within fixed capacity.
+  </div>
+  <label class="toggle-pill" for="viewToggle" role="switch" aria-label="Toggle between Track Record and AI Method view">
+    <span class="opt opt-track">Track Record</span>
+    <span class="opt opt-ai">AI Method</span>
+  </label>
+  <button class="print-button" onclick="preparePrint()" aria-label="Save as PDF or print">Save PDF</button>
+</div>
+
+<div class="page">
+
+<header>
+  <h1 class="name">BOBBY KHAN</h1>
+  <p class="contact">
+    St Ives, NSW 2075 &nbsp;·&nbsp; +61 410 529 055 &nbsp;·&nbsp;
+    <a href="mailto:khan.bobby@me.com">khan.bobby@me.com</a> &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener">linkedin.com/in/khanbobby</a> &nbsp;·&nbsp;
+    Australian Citizen
+  </p>
+</header>
+
+<section>
+  <h2>Executive Profile</h2>
+  <p class="lead">
+    Senior Business Transformation and Strategy executive with 20+ years of experience across Financial Services, Management Consulting, and Retail. Proven track record of delivering complex technology, data migration, CRM, and regulatory compliance programs ($1.7M–$18M capex) on time and within budget for ASX 200 organisations including Westpac, Perpetual, and Bank of Queensland.
+  </p>
+  <p class="lead">
+    Brings a well-rounded skill set across Strategy, Program Management, Business Design, and Corporate Finance, with deep expertise in financial services regulation, operating model design, and stakeholder engagement at senior leadership level.
+  </p>
+  <p class="lead">
+    In my next role I bring an AI-augmented delivery method: routing frontier AI models across the delivery loop to produce first-draft artefacts for human review — compressing interpretation, design, and change-management effort while keeping senior judgement in control.
+  </p>
+</section>
+
+<section>
+  <h2>Recent Independent Work</h2>
+  <p>Independent technical and analytical work demonstrating applied use of frontier AI models in program delivery.</p>
+
+  <p>
+    A reference artefact for how AI changes program delivery — delivering two outcomes that matter on a regulated program:
+    <span class="outcome">go-live on time, on budget, with quality</span>
+    through more iterations per sprint across analyse, build, and test; and
+    <span class="outcome">change requests absorbed within baseline</span>
+    without re-baselining time, budget, or quality. Achieved by routing frontier AI models across the delivery loop to produce first-draft artefacts for human review.
+  </p>
+  <p>
+    The same discipline carries into client delivery: explainable, citation-anchored, human-in-the-loop — AI produces the first draft, senior judgement owns the decision. The use cases below show the method applied to programs I have delivered.
+  </p>
+
+  <div class="method-diagram" aria-label="AI-Augmented Delivery Method">
+    <span class="step">Analyse</span>
+    <span class="arrow">→</span>
+    <span class="step">Build</span>
+    <span class="arrow">→</span>
+    <span class="step">Test</span>
+    <span class="overlay">↑ Frontier AI models producing first-draft artefacts for human review, compressing development time ↑</span>
+  </div>
+
+  <div class="cheetah-box">
+    <p class="cheetah-title">Cheetah Squad PPP — Predictive Cycling Performance Platform (Apr 2026 – Present)</p>
+    <p>Have used a fully AI-augmented delivery model for this body of work.</p>
+    <div class="cs-callout">
+      <span class="cs-head">AI Toolkit for Coding &amp; Testing</span>Claude Opus 4.7 and 4.8 for genuine reasoning, architecture, code authoring and review; Gemini Pro for deep research; explicit model routing for cost and task fit. Test harness for synthetic tests. Built and run in GitHub Codespaces with version-controlled repos and sprint-based PRs; Python / Streamlit (Streamlit Cloud); MotherDuck (cloud DuckDB). Google Cloud for authentication.
+    </div>
+    <div class="cs-callout">
+      <span class="cs-head">AI-Augmented Delivery Method</span>Spec-driven development with a canonical ARCHITECTURE document as the change gate, and a To Do document as the scope, for planning program increment / sprint sequence — no metric-surface change ships without an ARCHITECTURE and To Do diff in the same pull request — backed by test-first discipline, a 45+ test automated safety harness, and citation-anchored configuration. GitHub Codespaces bash commands for codebase navigation. AI produces the first draft; senior judgement owns the decision.
+    </div>
+    <div class="cs-callout">
+      <span class="cs-head">Outcome</span>Designed, built, and deployed solo as a working MVP over six weeks on iOS (iPhone and iPad); available to demonstrate on request — an early proof of the method, with the fuller platform still in build.
+    </div>
+    <p>Broader details in LinkedIn Projects: <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener" style="color:var(--accent);">linkedin.com/in/khanbobby</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>Core Competencies</h2>
+  <p class="pipe-list">
+    Business Transformation &nbsp;|&nbsp; AI-Augmented Delivery — frontier models routing across reasoning and retrieval tiers &nbsp;|&nbsp; Regulated Lifecycle Delivery (DDO, Anti-Hawking, NCCP, BCOP) &nbsp;|&nbsp; Strategic Planning &amp; Business Design &nbsp;|&nbsp; CRM Implementation (Salesforce) &nbsp;|&nbsp; Operating Model Design &nbsp;|&nbsp; Business Case Development &nbsp;|&nbsp; Financial Analysis &amp; Modelling &nbsp;|&nbsp; Stakeholder Management (C-Suite) &nbsp;|&nbsp; Change Management &nbsp;|&nbsp; Vendor &amp; Contract Negotiation &nbsp;|&nbsp; M&amp;A Due Diligence &nbsp;|&nbsp; Agile &nbsp;|&nbsp; Delivery Risk Management &nbsp;|&nbsp;
+  </p>
+</section>
+
+<section>
+  <h2>Tools &amp; Technology</h2>
+  <p class="pipe-list">
+    Salesforce CRM &nbsp;|&nbsp; Microsoft 365 &nbsp;|&nbsp; Jira &nbsp;|&nbsp; Confluence &nbsp;|&nbsp; Power BI &nbsp;|&nbsp; Advanced Excel &amp; Financial Modelling &nbsp;|&nbsp; Azure DevOps &nbsp;|&nbsp; Adobe Experience Manager &nbsp;|&nbsp; Frontier AI Models (Claude Opus 4.7 for reasoning, design, complex coding; GitHub Codespaces bash commands for codebase navigation; Gemini for deep research) &nbsp;|&nbsp; GitHub &nbsp;|&nbsp; Python / Streamlit &nbsp;|&nbsp; Google Sheets API
+  </p>
+</section>
+
+<section>
+  <h2>Career History</h2>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Perpetual Wealth Management — Delivery Lead</span>
+      <span class="role-dates">May 2025 – Mar 2026</span>
+    </div>
+    <p class="role-sub">Contract engagement — $1.7M CRM transformation across an acquired business entity</p>
+    <ul>
+      <li>Recruited and led a team of Business Analyst, Salesforce Architect, Data Architect and Testers.</li>
+      <li>Defined and documented end-to-end business requirements, engaging stakeholders across the newly acquired entity to ensure solution fit.</li>
+      <li>Designed, built, and tested the CRM solution, which went live successfully.</li>
+      <li>Managed delivery within budget, maintaining scope integrity across a complex multi-entity data migration.</li>
+      <li>Managed daily scrums, RAID, user story supervision, test plan, and other project deliverables.</li>
+    </ul>
+    <div class="ai-method">
+      <span class="ai-tag">AI Method</span>The entity had no CX function to design customer journeys. I would feed customer and product data to AI agents to generate draft personas, then use the agents to produce first-draft CX journey designs for human review — creating customer-experience capability from existing resources without standing up a new team.
+      <span class="ai-outcome">Outcome: CX design capability unlocked at marginal cost; more value from the resources already on the program.</span>
+    </div>
+    <div class="ai-method">
+      <span class="ai-tag">AI Method</span>Training materials were out of date. I would feed AI agents the existing solution landscape, the new solution architecture, business requirements, and screen flows, and have them produce first-draft training and change-management material for human review — significantly fast-tracking change-artefact creation.
+      <span class="ai-outcome">Outcome: change-management artefacts produced in a fraction of the usual time, accelerating user readiness and go-live.</span>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Westpac Banking Corporation — Program Manager / Strategy Service Owner / Business Design Lead</span>
+      <span class="role-dates">May 2021 – Sep 2024</span>
+    </div>
+    <p class="role-sub">Regulatory compliance, strategy, and business design across Consumer and Business Banking ($10M–$18M capex)</p>
+    <ul>
+      <li>Led delivery of Design &amp; Distribution Obligation (DDO) regulatory solution across 10+ technology systems for Consumer Products (Deposits, Credit Cards, Personal Loans, Home Loan Variation), distributed digitally — $18M capex, delivered on time and on budget (Sep 2021).</li>
+      <li>Led CRM systems uplift for Business Distribution to embed Anti-Hawking compliance (~$7M capex), delivering all key compliance items on time and on budget.</li>
+      <li>Applied Agile delivery practices across multi-squad programs — daily scrums, RAID management, user story governance, and integrated test planning across 10+ technology systems.</li>
+      <li>Developed business case to build Digital ID capabilities targeting non-interest income growth; successfully secured funding for discovery phase.</li>
+      <li>Led analysis of market share loss drivers for Consumer Finance products ($1.5B+ asset base).</li>
+      <li>Managed Consumer Finance FY25 BSR submission (~$110M annual capex) through to March 2024.</li>
+      <li>Developed prioritisation framework for Program UNITE technology simplification (capex ~$2B over 5 years), consolidating 180+ tech platforms into fewer than 60.</li>
+    </ul>
+    <div class="ai-method">
+      <span class="ai-tag">AI Method</span>On a DDO-shape program, I would have AI analyse Product Disclosure Statements and target market determinations to produce first-draft solution architecture — data flows, control points, distribution-channel obligations — for human review. This compresses regulatory interpretation, the slowest phase of any compliance program.
+      <span class="ai-outcome">Outcome: faster, on-budget delivery; interpretation effort cut from weeks to days.</span>
+    </div>
+    <div class="ai-method">
+      <span class="ai-tag">AI Method</span>On an Anti-Hawking-shape program, I would have AI design first-draft compliance alerts — (a) data required, (b) trigger logic, (c) synthetic test scenarios — for human review. This compresses alert design and test build, the parts that usually threaten go-live dates.
+      <span class="ai-outcome">Outcome: alert design and testing accelerated, protecting go-live on time, budget, and quality.</span>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Woolworths Group — Strategy Consultant, Transformation</span>
+      <span class="role-dates">Sep 2020 – Apr 2021</span>
+    </div>
+    <ul>
+      <li>Conducted diagnostic review of $150M annual contract labour spend, identifying ~$15M in savings across 5 key initiatives.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Bank of Queensland — Head of Strategy, Business Bank</span>
+      <span class="role-dates">Sep 2019 – Sep 2020</span>
+    </div>
+    <ul>
+      <li>Identified ~$1B growth opportunity in Asset Finance over 5 years through digital capability and operating model uplift targeting the SME segment ($1M–$50M revenue).</li>
+      <li>Designed strategy for BoQ to grow in Accounting Services, targeting $700M+ incremental lending footing over 5 years.</li>
+      <li>Devised and presented business case to upgrade and consolidate core leasing platforms, securing approval for Discovery &amp; Detailed Design phase.</li>
+      <li>Prepared multiple Board papers on business progress and risk reviews.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Accenture Consulting — Senior Manager</span>
+      <span class="role-dates">Sep 2017 – Aug 2019</span>
+    </div>
+    <ul>
+      <li>Led Business Engagement stream for Banking Code of Practice (BCOP) reporting implementation — delivered stakeholder alignment and on-time regulatory compliance.</li>
+      <li>Led Process Design stream for post-acquisition business integration data migration, optimising synergy realisation.</li>
+      <li>Led Business Analysis stream for Responsible Lending / NCCP compliance, capturing requirements and developing functional specification for technology-enabled lending controls in home loan origination platforms.</li>
+      <li>Led global feasibility study for Big Data / machine learning initiative, building a prototype for proactive customer engagement in Australian banking — enabling Accenture to localise the capability.</li>
+      <li>Developed $40M sales pipeline through client relationship management.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Westpac Banking Corporation — Senior Manager, Portfolio Development</span>
+      <span class="role-dates">Sep 2014 – Aug 2017</span>
+    </div>
+    <p class="role-sub">Drove growth strategy and business transformation across the end-to-end customer journey (Origination, Credit, Onboarding) for Asset Finance</p>
+    <ul>
+      <li>Led cross-sell initiative for operating lease product, generating $75M in new business in FY15.</li>
+      <li>Led margin improvement initiative achieving 13% uplift in Return on Tangible Equity.</li>
+      <li>Delivered onboarding process transformation, improving Time to Cash by 30%.</li>
+      <li>Relieved Head of role for 6 weeks, managing team and stakeholders across Customer Complaints, Risk, and Credit.</li>
+    </ul>
+  </div>
+
+  <details>
+    <summary>Earlier career (2000–2014)</summary>
+
+    <div class="role">
+      <div class="role-header">
+        <span class="role-title">Transport for NSW — Consultant</span>
+        <span class="role-dates">Mar 2014 – Jul 2014</span>
+      </div>
+      <ul>
+        <li>Delivered recommendations to reduce third-party spend by 10%.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <span class="role-title">Xchanging / DXC — Head of Commercial and Strategy</span>
+        <span class="role-dates">Jul 2010 – Dec 2013</span>
+      </div>
+      <ul>
+        <li>Devised business case to replace core IT platform, presented to global CEO, resulting in 7% margin improvement.</li>
+        <li>Achieved 10% discount on buy price for $30M M&amp;A transaction.</li>
+        <li>Identified and mitigated commercial risks in legal documentation (SPAs, transaction contracts, NDAs).</li>
+        <li>Structured complex outsourcing transaction pricing ensuring commercial sustainability.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <span class="role-title">Westpac Banking Corporation — Manager, Strategy &amp; Transaction</span>
+        <span class="role-dates">Jul 2006 – Jun 2010</span>
+      </div>
+      <ul>
+        <li>Devised offshoring strategy business case, securing Board approval to offshore non-core processes and improve cost-income ratio.</li>
+        <li>Conducted counter-party due diligence on $500M revenue base to mitigate supplier risk.</li>
+        <li>Conducted pricing analysis for $10M+ outsourcing deal, contributing to 5% savings in negotiation.</li>
+        <li>Diagnostic study of call centre, contingent labour, and professional services spend — average 12% savings identified.</li>
+        <li>Ran RFP and vendor negotiation for Basel II data warehouse outsourcing, achieving 15% savings.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <span class="role-title">Country Energy — Analyst, Corporate Finance</span>
+        <span class="role-dates">Jan 2005 – Jun 2006</span>
+      </div>
+      <ul>
+        <li>Devised business plan for broadband services diversification, identifying 6% revenue upside from Telco.</li>
+        <li>Post-implementation review identified 4% margin improvement opportunity.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-header">
+        <span class="role-title">Telenor — Deputy Manager, Commercial Strategy</span>
+        <span class="role-dates">Jan 2000 – Dec 2002</span>
+      </div>
+      <ul>
+        <li>Devised US$175M business case for international gateway entry, resulting in 4% regional revenue uplift for Telenor.</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <p class="education-line">Master of Commerce (Finance) — University of Sydney &nbsp;·&nbsp; Dec 2003</p>
+  <p class="education-line">Bachelor of Business Administration — IBA, University of Dhaka &nbsp;·&nbsp; Dec 1998</p>
+</section>
+
+<section>
+  <h2>Referees</h2>
+  <p class="lead">Available on request. LinkedIn recommendations available at <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener" style="color:var(--accent);">linkedin.com/in/khanbobby</a>.</p>
+</section>
+
+<footer>
+  Bobby Khan &nbsp;·&nbsp; CV &nbsp;·&nbsp; 2026
+</footer>
+
+</div>
+
+<script>
+  // When "Save PDF" is tapped, flag whether AI Method is the selected view.
+  // The print stylesheet uses html.print-ai to decide what goes into the PDF.
+  function openAllDetails() {
+    window.__reclose = window.__reclose || [];
+    document.querySelectorAll('details:not([open])').forEach(function (d) {
+      window.__reclose.push(d);
+      d.open = true;
+    });
+  }
+  function preparePrint() {
+    var aiMode = document.getElementById('viewToggle').checked;
+    document.documentElement.classList.toggle('print-ai', aiMode);
+    openAllDetails();          // synchronous — reliable when the button is tapped
+    window.print();
+  }
+  // Also covers the browser/OS print menu where it fires (e.g. desktop Safari).
+  window.addEventListener('beforeprint', openAllDetails);
+  // Restore the on-screen view after printing.
+  window.addEventListener('afterprint', function () {
+    document.documentElement.classList.remove('print-ai');
+    if (window.__reclose) {
+      window.__reclose.forEach(function (d) { d.open = false; });
+      window.__reclose = null;
+    }
+  });
+</script>
+
+</body>
+</html>
