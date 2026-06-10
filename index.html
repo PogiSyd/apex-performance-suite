@@ -142,7 +142,7 @@
   #viewToggle:not(:checked) ~ .toggle-bar .toggle-pill .opt-track { color: white; }
   #viewToggle:checked ~ .toggle-bar .toggle-pill .opt-ai { color: white; }
 
-  /* Save PDF button */
+  /* Save PDF button (Now an anchor link) */
   .print-button {
     background: white;
     border: 1px solid var(--rule);
@@ -154,6 +154,7 @@
     letter-spacing: 0.04em;
     border-radius: 999px;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
@@ -168,25 +169,6 @@
   .print-button::before {
     content: '⤓';
     font-size: 14px;
-  }
-
-  /* Desktop-only save hint. On a phone/tablet the OS turns the print call into
-     a clean "Save as PDF" share sheet, so no hint is needed. On desktop the
-     browser shows a print dialog where the save option is less obvious, so we
-     surface a short nudge — shown only on devices with a fine pointer + hover
-     (i.e. mouse/trackpad), and never printed into the PDF. */
-  .save-hint { display: none; }
-  @media (hover: hover) and (pointer: fine) {
-    .save-hint {
-      display: block;
-      width: 100%;
-      text-align: right;
-      margin-top: -2px;
-      font-size: 11px;
-      color: var(--ink-muted);
-      letter-spacing: 0.02em;
-    }
-    .save-hint strong { color: var(--ink-soft); font-weight: 600; }
   }
 
   /* Section headings */
@@ -514,7 +496,6 @@
 </head>
 <body>
 
-<!-- Hidden checkbox. Default unchecked = Track Record view. Checked = AI Method (use cases shown). -->
 <input type="checkbox" id="viewToggle">
 
 <div class="toggle-bar" role="region" aria-label="View toggle">
@@ -525,8 +506,7 @@
     <span class="opt opt-track">Track Record</span>
     <span class="opt opt-ai">AI Method</span>
   </label>
-  <button class="print-button" onclick="preparePrint()" aria-label="Save as PDF or print">Save PDF</button>
-  <span class="save-hint">Desktop: in the print dialog, set destination to <strong>“Save as PDF”</strong> (Safari: the <strong>PDF ⌄</strong> menu, bottom-left).</span>
+  <a id="downloadBtn" href="Bobby_Khan_CV.pdf" download="Bobby_Khan_CV.pdf" class="print-button" aria-label="Save as PDF">Save PDF</a>
 </div>
 
 <div class="page">
@@ -789,29 +769,18 @@
 </div>
 
 <script>
-  // When "Save PDF" is tapped, flag whether AI Method is the selected view.
-  // The print stylesheet uses html.print-ai to decide what goes into the PDF.
-  function openAllDetails() {
-    window.__reclose = window.__reclose || [];
-    document.querySelectorAll('details:not([open])').forEach(function (d) {
-      window.__reclose.push(d);
-      d.open = true;
-    });
-  }
-  function preparePrint() {
-    var aiMode = document.getElementById('viewToggle').checked;
-    document.documentElement.classList.toggle('print-ai', aiMode);
-    openAllDetails();          // synchronous — reliable when the button is tapped
-    window.print();
-  }
-  // Also covers the browser/OS print menu where it fires (e.g. desktop Safari).
-  window.addEventListener('beforeprint', openAllDetails);
-  // Restore the on-screen view after printing.
-  window.addEventListener('afterprint', function () {
-    document.documentElement.classList.remove('print-ai');
-    if (window.__reclose) {
-      window.__reclose.forEach(function (d) { d.open = false; });
-      window.__reclose = null;
+  const viewToggle = document.getElementById('viewToggle');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  viewToggle.addEventListener('change', function() {
+    if (this.checked) {
+      // AI Method View Selected
+      downloadBtn.href = "Bobby_Khan_CV_AI_Method.pdf";
+      downloadBtn.download = "Bobby_Khan_CV_AI_Method.pdf";
+    } else {
+      // Track Record View Selected
+      downloadBtn.href = "Bobby_Khan_CV.pdf";
+      downloadBtn.download = "Bobby_Khan_CV.pdf";
     }
   });
 </script>
