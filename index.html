@@ -53,6 +53,14 @@
     color: var(--accent);
     margin-bottom: 8px;
   }
+  .tagline {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
   .contact {
     font-size: 12px;
     color: var(--ink-muted);
@@ -506,7 +514,10 @@
     html.print-ai .method-diagram,
     #viewToggle:checked ~ .page .role,
     #viewToggle:checked ~ .page .method-diagram { page-break-inside: auto; }
-    h2 { page-break-after: avoid; }
+    h2 { page-break-after: avoid; letter-spacing: 0.04em; }
+    /* Tighter tracking in the PDF text layer so an ATS reads headings as whole
+       words, not spaced-out letters. On-screen spacing is unaffected. */
+    .tagline { letter-spacing: 0.03em; }
     .method-diagram { background: white; }
     a { color: var(--ink); text-decoration: none; }
   }
@@ -533,6 +544,7 @@
 
 <header>
   <h1 class="name">BOBBY KHAN</h1>
+  <p class="tagline">Agile Delivery Lead · Transformation &amp; Regulated Delivery</p>
   <p class="contact">
     St Ives, NSW 2075 &nbsp;·&nbsp; +61 410 529 055 &nbsp;·&nbsp;
     <a href="mailto:khan.bobby@me.com">khan.bobby@me.com</a> &nbsp;·&nbsp;
@@ -542,59 +554,33 @@
 </header>
 
 <section>
-  <h2>Executive Profile</h2>
+  <h2>Professional Summary</h2>
   <p class="lead">
-    Senior Business Transformation and Strategy executive with 20+ years of experience across Financial Services, Management Consulting, and Retail. Proven track record of delivering complex technology, data migration, CRM, and regulatory compliance programs ($1.7M–$18M capex) on time and within budget for ASX 200 organisations including Westpac, Perpetual, and Bank of Queensland.
+    Senior delivery and transformation leader with 20+ years across Financial Services, Management Consulting, and Retail, delivering complex technology, data migration, CRM, and regulatory compliance programs ($1.7M–$18M capex) on time and on budget for ASX 200 organisations including Westpac, Perpetual, and Bank of Queensland.
   </p>
   <p class="lead">
-    Brings a well-rounded skill set across Strategy, Program Management, Business Design, and Corporate Finance, with deep expertise in financial services regulation, operating model design, and stakeholder engagement at senior leadership level.
+    Leads multi-squad Agile delivery and builds high-performing teams — coaching members, running Agile ceremonies, coordinating cross-team dependencies, and driving continuous improvement — with deep expertise in financial services regulation, stakeholder engagement at C-suite, and operating model design.
   </p>
   <p class="lead">
-    Hands-on experience in AI-augmented delivery, through independent work: routing frontier AI models across the delivery loop to produce first-draft artefacts for human review — compressing analysis, design, build, and test effort, whilst keeping human judgement in control.
+    Champions innovation and efficiency, most recently through hands-on AI-augmented delivery (independent work): routing frontier AI models to produce first-draft artefacts for human review, compressing analyse–build–test effort while keeping human judgement in control.
   </p>
 </section>
 
 <section>
-  <h2>Recent Independent Work</h2>
-  <p>Independent technical and analytical work demonstrating applied use of frontier AI models in program delivery.</p>
-
-  <p>
-    A reference artefact for how AI changes program delivery through enabling two outcomes that matter on a regulated program:
-    <span class="outcome">go-live on time, on budget, with quality</span>
-    through more iterations per sprint across analyse, build, and test; and
-    <span class="outcome">change requests absorbed within baseline</span>
-    without re-baselining time, budget, or quality. Achieved by routing frontier AI models across the delivery loop to produce first-draft artefacts for human review. The same discipline carries into client delivery: explainable, citation-anchored, human-in-the-loop.
-  </p>
-
-  <div class="method-diagram" aria-label="AI-Augmented Delivery Method">
-    <span class="step">Analyse</span>
-    <span class="arrow">→</span>
-    <span class="step">Build</span>
-    <span class="arrow">→</span>
-    <span class="step">Test</span>
-    <span class="overlay">↑ Frontier AI models producing first-draft artefacts for human review, compressing development time ↑</span>
-  </div>
-
-  <div class="cheetah-box">
-    <p class="cheetah-title">Cheetah Squad PPP — Predictive Cycling Performance Platform (Apr 2026 – Present)</p>
-    <p>Using a fully AI-augmented delivery model for this body of work.</p>
-    <div class="cs-callout">
-      <span class="cs-head">AI Toolkit for Coding &amp; Testing</span>Claude Opus 4.7 and 4.8 for genuine reasoning, architecture, code authoring and review; Gemini Pro for deep research; explicit model routing for cost and task fit. Test harness for synthetic tests. Built and run in GitHub Codespaces with version-controlled repos and sprint-based PRs; Python / Streamlit (Streamlit Cloud); MotherDuck (cloud DuckDB). Google Cloud for authentication.
-    </div>
-    <div class="cs-callout">
-      <span class="cs-head">AI-Augmented Delivery Method</span>Spec-driven development with a canonical ARCHITECTURE document as the change gate, and a To Do document as the scope, for planning program increment / sprint sequence — no metric-surface change ships without an ARCHITECTURE and To Do diff in the same pull request — backed by test-first discipline, a 45+ test automated safety harness, and citation-anchored configuration. GitHub Codespaces bash commands for codebase navigation. AI produces the first draft; senior judgement owns the decision.
-    </div>
-    <div class="cs-callout">
-      <span class="cs-head">Outcome</span>Designed, built, and deployed solo as a working MVP over six weeks on iOS (iPhone and iPad); available to demonstrate on request — an early proof of the method, with the fuller platform still in build.
-    </div>
-    <p>Broader details in LinkedIn Projects: <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener" style="color:var(--accent);">linkedin.com/in/khanbobby</a></p>
-  </div>
+  <h2>AI-Augmented Delivery</h2>
+  <p>Hands-on use of frontier AI to accelerate delivery work, with human judgement owning every decision:</p>
+  <ul>
+    <li><strong>Business analysis:</strong> AI drafts first-pass requirements, user stories and personas from source material for analyst review — compressing the analysis phase while a human owns the call.</li>
+    <li><strong>Process analysis:</strong> AI maps current/future-state processes and surfaces gaps, controls and rework from documents and interviews — accelerating process design.</li>
+    <li><strong>Research &amp; synthesis:</strong> AI runs deep research and synthesises regulation, market and solution options into citation-anchored first drafts for the team to validate.</li>
+  </ul>
+  <p style="font-size:13px;color:var(--ink-muted);">Proven end-to-end on an independent build, Cheetah Squad PPP — detail at the end of this CV.</p>
 </section>
 
 <section>
   <h2>Core Competencies</h2>
   <p class="pipe-list">
-    Business Transformation &nbsp;|&nbsp; AI-Augmented Delivery — frontier models routing across reasoning and retrieval tiers &nbsp;|&nbsp; Regulated Lifecycle Delivery (DDO, Anti-Hawking, NCCP, BCOP) &nbsp;|&nbsp; Strategic Planning &amp; Business Design &nbsp;|&nbsp; CRM Implementation (Salesforce) &nbsp;|&nbsp; Operating Model Design &nbsp;|&nbsp; Business Case Development &nbsp;|&nbsp; Financial Analysis &amp; Modelling &nbsp;|&nbsp; Stakeholder Management (C-Suite) &nbsp;|&nbsp; Change Management &nbsp;|&nbsp; Vendor &amp; Contract Negotiation &nbsp;|&nbsp; M&amp;A Due Diligence &nbsp;|&nbsp; Agile &nbsp;|&nbsp; Delivery Risk Management &nbsp;|&nbsp;
+    Agile Delivery Leadership (multi-squad) &nbsp;|&nbsp; Full-Lifecycle Delivery — Design → Build → Test → Release (SDLC) &nbsp;|&nbsp; Team Coaching &amp; People Leadership &nbsp;|&nbsp; Continuous Improvement &nbsp;|&nbsp; Delivery Risk &amp; Dependency Management &nbsp;|&nbsp; Capacity &amp; Resource Planning &nbsp;|&nbsp; Stakeholder Management (C-Suite) &nbsp;|&nbsp; Regulated Lifecycle Delivery (DDO, Anti-Hawking, NCCP, BCOP) &nbsp;|&nbsp; Business &amp; Process Analysis &nbsp;|&nbsp; CRM Implementation (Salesforce) &nbsp;|&nbsp; Change Management &nbsp;|&nbsp; Business Case Development, Budgeting &amp; Forecasting &nbsp;|&nbsp; Vendor &amp; Partner Management &nbsp;|&nbsp; Operating Model Design &nbsp;|&nbsp; AI-Augmented Delivery &nbsp;|&nbsp; Financial Analysis &amp; Modelling &nbsp;|&nbsp;
   </p>
 </section>
 
@@ -606,7 +592,7 @@
 </section>
 
 <section>
-  <h2>Career History</h2>
+  <h2>Professional Experience</h2>
 
   <div class="role">
     <div class="role-header">
@@ -621,6 +607,8 @@
       <li>Designed, built, and tested the CRM solution, which went live successfully.</li>
       <li>Managed delivery within budget, maintaining scope integrity across a complex multi-entity data migration.</li>
       <li>Managed daily scrums, RAID, user story supervision, test plan, and other project deliverables.</li>
+      <li>Coached business analysts and developers to lift analysis and build quality, reducing rework and improving delivery efficiency.</li>
+      <li>Ran bi-weekly sprint retrospectives to drive continuous improvement, improving how limited SME time was used.</li>
     </ul>
     <div class="ai-method">
       <span class="ai-tag">AI Method</span>The entity had no CX function to design customer journeys. I would feed customer and product data to AI agents to generate draft personas, then use the agents to produce first-draft CX journey designs for human review — creating customer-experience capability from existing resources without standing up a new team.
@@ -646,6 +634,8 @@
       <li>Led analysis of market share loss drivers for Consumer Finance products ($1.5B+ asset base).</li>
       <li>Managed Consumer Finance FY25 BSR submission (~$110M annual capex) through to March 2024.</li>
       <li>Developed prioritisation framework for Program UNITE technology simplification (capex ~$2B over 5 years), consolidating 180+ tech platforms into fewer than 60.</li>
+      <li>Coached squad members and business analysts across the program to raise requirements and engineering quality, cutting downstream rework.</li>
+      <li>Embedded continuous improvement through regular sprint retrospectives, sharpening SME engagement and squad throughput.</li>
     </ul>
     <div class="ai-method">
       <span class="ai-tag">AI Method</span>On a DDO-shape program, I would have AI analyse Product Disclosure Statements and target market determinations to produce first-draft solution architecture — data flows, control points, distribution-channel obligations — for human review. This compresses regulatory interpretation, the slowest phase of any compliance program.
@@ -769,6 +759,24 @@
       </ul>
     </div>
   </details>
+</section>
+
+<section>
+  <h2>Independent Project — Cheetah Squad PPP</h2>
+  <p>A working proof of the AI-augmented delivery method above — a Predictive Cycling Performance Platform (Apr 2026 – Present), designed, built, and shipped solo.</p>
+
+  <div class="cheetah-box">
+    <div class="cs-callout">
+      <span class="cs-head">AI Toolkit for Coding &amp; Testing</span>Claude Opus 4.7 and 4.8 for genuine reasoning, architecture, code authoring and review; Gemini Pro for deep research; explicit model routing for cost and task fit. Test harness for synthetic tests. Built and run in GitHub Codespaces with version-controlled repos and sprint-based PRs; Python / Streamlit (Streamlit Cloud); MotherDuck (cloud DuckDB). Google Cloud for authentication.
+    </div>
+    <div class="cs-callout">
+      <span class="cs-head">AI-Augmented Delivery Method</span>Spec-driven development with a canonical ARCHITECTURE document as the change gate, and a To Do document as the scope, for planning program increment / sprint sequence — no metric-surface change ships without an ARCHITECTURE and To Do diff in the same pull request — backed by test-first discipline, a 45+ test automated safety harness, and citation-anchored configuration. GitHub Codespaces bash commands for codebase navigation. AI produces the first draft; senior judgement owns the decision.
+    </div>
+    <div class="cs-callout">
+      <span class="cs-head">Outcome</span>Designed, built, and deployed solo as a working MVP over six weeks on iOS (iPhone and iPad); available to demonstrate on request — an early proof of the method, with the fuller platform still in build.
+    </div>
+    <p>Broader details in LinkedIn Projects: <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener" style="color:var(--accent);">linkedin.com/in/khanbobby</a></p>
+  </div>
 </section>
 
 <section>
