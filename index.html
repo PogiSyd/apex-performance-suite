@@ -536,8 +536,7 @@
     <span class="opt opt-track">Track Record</span>
     <span class="opt opt-ai">AI Method</span>
   </label>
-  <button class="print-button" onclick="preparePrint()" aria-label="Save as PDF or print">Save PDF</button>
-  <span class="save-hint">Desktop: in the print dialog, set destination to <strong>“Save as PDF”</strong> (Safari: the <strong>PDF ⌄</strong> menu, bottom-left).</span>
+  <a id="downloadPdf" class="print-button" href="cv-track-record.pdf" download="Bobby Khan CV.pdf" role="button" aria-label="Download CV as PDF">Download PDF</a>
 </div>
 
 <div class="page">
@@ -822,6 +821,22 @@
       window.__reclose = null;
     }
   });
+
+  // Point the Download PDF link at the pre-rendered A4 file that matches the
+  // selected view (Track Record vs AI Method). Both files live next to this
+  // HTML in the repo, so everyone downloads the same standard A4 PDF.
+  (function () {
+    var toggle = document.getElementById('viewToggle');
+    var dl = document.getElementById('downloadPdf');
+    if (!toggle || !dl) return;
+    function syncDownload() {
+      var ai = toggle.checked;
+      dl.setAttribute('href', ai ? 'cv-ai-method.pdf' : 'cv-track-record.pdf');
+      dl.setAttribute('download', ai ? 'Bobby Khan CV (AI Method).pdf' : 'Bobby Khan CV.pdf');
+    }
+    toggle.addEventListener('change', syncDownload);
+    syncDownload();
+  })();
 </script>
 
 </body>
