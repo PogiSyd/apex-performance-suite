@@ -472,13 +472,19 @@
 
   /* Print */
   /* Fixed A4 page geometry so the saved PDF is consistent across browsers. */
-  @page { size: A4; margin: 15mm 14mm 13mm; }
+  @page { size: A4; margin: 12mm 13mm 11mm; }
   @media print {
     /* Keep the light-blue callout backgrounds in the saved PDF. */
     html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    body { padding: 0; background: white; font-size: 10pt; }
+    body { padding: 0; background: white; font-size: 9.7pt; line-height: 1.42; }
     /* Slightly tighter section spacing so pages pack without large gaps. */
-    section { margin-bottom: 26px; }
+    section { margin-bottom: 18px; }
+    p { margin-bottom: 7px; }
+    .lead { line-height: 1.45; }
+    li { margin-bottom: 3.5px; line-height: 1.42; }
+    h2 { margin-bottom: 7px; padding-bottom: 5px; }
+    .role { margin-bottom: 12px; }
+    .role-sub { margin-bottom: 5px; }
     .page { max-width: none; }
     /* Only the CV itself prints. Anything else at body level — the toggle
        bar, or an overlay injected by a browser extension / app wrapper such
@@ -493,6 +499,15 @@
     .ai-method { display: none !important; }
     html.print-ai .ai-method,
     #viewToggle:checked ~ .page .ai-method { display: block !important; }
+    /* AI Method view runs taller (extra callouts). Compact the callouts in
+       print only so it packs to 5 pages, without touching the Track Record view. */
+    html.print-ai .ai-method,
+    #viewToggle:checked ~ .page .ai-method {
+      font-size: 8.9pt; line-height: 1.34;
+      padding: 6px 10px; margin: 5px 0 4px 0;
+    }
+    html.print-ai .ai-method .ai-outcome,
+    #viewToggle:checked ~ .page .ai-method .ai-outcome { font-size: 8.6pt; margin-top: 3px; }
 
     details { border-top: none; padding-top: 0; }
     /* Force the "Earlier career" fold fully open in print, regardless of its
@@ -586,7 +601,7 @@
 <section>
   <h2>Tools &amp; Technology</h2>
   <p class="pipe-list">
-    Salesforce CRM &nbsp;|&nbsp; Microsoft 365 &nbsp;|&nbsp; Jira &nbsp;|&nbsp; Confluence &nbsp;|&nbsp; Power BI &nbsp;|&nbsp; Advanced Excel &amp; Financial Modelling &nbsp;|&nbsp; Azure DevOps &nbsp;|&nbsp; Adobe Experience Manager &nbsp;|&nbsp; Frontier AI Models (Claude, Gemini) &nbsp;|&nbsp; GitHub &nbsp;|&nbsp; Google Sheets API
+    Salesforce CRM &nbsp;|&nbsp; Microsoft 365 &nbsp;|&nbsp; Microsoft Copilot &nbsp;|&nbsp; Jira &nbsp;|&nbsp; Confluence &nbsp;|&nbsp; Power BI &nbsp;|&nbsp; Advanced Excel &amp; Financial Modelling &nbsp;|&nbsp; Azure DevOps &nbsp;|&nbsp; Adobe Experience Manager &nbsp;|&nbsp; Frontier AI Models (Claude, Gemini) &nbsp;|&nbsp; GitHub &nbsp;|&nbsp; Google Sheets API
   </p>
 </section>
 
@@ -601,7 +616,7 @@
     <p class="role-sub">Contract engagement — $1.7M CRM transformation across an acquired business entity</p>
     <ul>
       <li>Secured funding by developing a business case.</li>
-      <li>Recruited and led a team of Business Analyst, Salesforce Architect, Data Architect and Testers.</li>
+      <li>Recruited and led a team of Business Analysts, Salesforce Architects, Data Architects (for data migration), and Testers.</li>
       <li>Defined and documented end-to-end business requirements, engaging stakeholders across the newly acquired entity to ensure solution fit.</li>
       <li>Designed, built, and tested the CRM solution, which went live successfully.</li>
       <li>Managed delivery within budget, maintaining scope integrity across a complex multi-entity data migration.</li>
@@ -627,7 +642,7 @@
     <p class="role-sub">Regulatory compliance, strategy, and business design across Consumer and Business Banking ($10M–$18M capex)</p>
     <ul>
       <li>Led delivery of Design &amp; Distribution Obligation (DDO) regulatory solution across 10+ technology systems for Consumer Products (Deposits, Credit Cards, Personal Loans, Home Loan Variation), distributed digitally — $18M capex, delivered on time and on budget (Sep 2021).</li>
-      <li>Led CRM systems uplift for Business Distribution to embed Anti-Hawking compliance (~$7M capex), delivering all key compliance items on time and on budget.</li>
+      <li>Led CRM systems uplift for Business Distribution to embed Anti-Hawking compliance (~$7M capex). Recruited and directed a team of 3 Data Scientists (SAS and Oracle) to build 10 automated compliance-breach alerts for post-go-live monitoring, and Data Architects to execute data migration, delivering all key items on time and on budget.</li>
       <li>Applied Agile delivery practices across multi-squad programs — daily scrums, RAID management, user story governance, and integrated test planning across 10+ technology systems.</li>
       <li>Developed business case to build Digital ID capabilities targeting non-interest income growth; successfully secured funding for discovery phase.</li>
       <li>Led analysis of market share loss drivers for Consumer Finance products ($1.5B+ asset base).</li>
