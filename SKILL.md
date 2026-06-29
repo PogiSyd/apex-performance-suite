@@ -63,7 +63,7 @@ reader never misreads scope.
 rhetorically separate from any market/portfolio-scale figure (BoQ). Owned numbers
 carry weight precisely because they are cleanly Bobby's; do not dilute them.
 
-## 2. Matt Dunn's CV feedback — apply SELECTIVELY
+## 2. CV feedback — apply SELECTIVELY
 
 Matt Dunn (Quantium) gave a detailed review. Bobby applies it by role, not
 wholesale. Treat the points below as a menu, not a checklist. Where Matt's read of
