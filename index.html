@@ -37,7 +37,7 @@
     margin: 0 auto;
     background: var(--paper);
   }
-
+ 
   /* Header */
   header {
     text-align: center;
@@ -72,7 +72,7 @@
     border-bottom: 1px dotted var(--rule);
   }
   .contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
+ 
   /* Hidden checkbox - drives CSS-only toggle. Default checked = Claims mode. */
   #viewToggle {
     position: absolute;
@@ -81,7 +81,7 @@
     width: 1px;
     height: 1px;
   }
-
+ 
   /* Toggle bar */
   .toggle-bar {
     background: var(--paper-soft);
@@ -105,7 +105,7 @@
     font-weight: 600;
     color: var(--ink);
   }
-
+ 
   /* Pill switch — pure CSS, label-driven */
   .toggle-pill {
     display: inline-flex;
@@ -149,7 +149,7 @@
   }
   #viewToggle:not(:checked) ~ .toggle-bar .toggle-pill .opt-track { color: white; }
   #viewToggle:checked ~ .toggle-bar .toggle-pill .opt-ai { color: white; }
-
+ 
   /* Save PDF button */
   .print-button {
     background: white;
@@ -177,7 +177,7 @@
     content: '⤓';
     font-size: 14px;
   }
-
+ 
   /* Desktop-only save hint. On a phone/tablet the OS turns the print call into
      a clean "Save as PDF" share sheet, so no hint is needed. On desktop the
      browser shows a print dialog where the save option is less obvious, so we
@@ -196,7 +196,7 @@
     }
     .save-hint strong { color: var(--ink-soft); font-weight: 600; }
   }
-
+ 
   /* Section headings */
   h2 {
     font-family: var(--serif);
@@ -210,7 +210,7 @@
     border-bottom: 1px solid var(--accent);
   }
   section { margin-bottom: 36px; }
-
+ 
   /* Body content */
   p { margin-bottom: 12px; }
   p:last-child { margin-bottom: 0; }
@@ -219,7 +219,7 @@
     line-height: 1.6;
     color: var(--ink-soft);
   }
-
+ 
   /* AI-method use-case blocks — shown only when checkbox checked (AI Method mode) */
   .ai-method {
     display: none;
@@ -264,12 +264,12 @@
     border-radius: 0 3px 3px 0;
   }
   #viewToggle:checked ~ .page .ai-method { display: block; }
-
+ 
   /* Always-visible variant of the AI method box (real, delivered work —
      e.g. Cheetah Squad), shown in both Track Record and AI Method views.
      Higher specificity than .ai-method so it overrides the hide rules. */
   .ai-method.always { display: block !important; }
-
+ 
   /* Cheetah Squad delivery callouts (Toolkit / Method / Outcome) — always
      visible, blue shade, each led by a bold all-caps heading. */
   .cs-callout {
@@ -291,14 +291,14 @@
     color: var(--accent);
     margin-bottom: 5px;
   }
-
+ 
   /* Method outcomes */
   .outcome {
     font-style: italic;
     font-weight: 600;
     color: var(--accent);
   }
-
+ 
   /* Method mini-diagram */
   .method-diagram {
     display: flex;
@@ -336,14 +336,14 @@
     letter-spacing: 0.04em;
     font-style: italic;
   }
-
+ 
   /* Pipe-list */
   .pipe-list {
     font-size: 13.5px;
     line-height: 1.7;
     color: var(--ink-soft);
   }
-
+ 
   /* Career history */
   .role {
     margin-bottom: 24px;
@@ -392,7 +392,7 @@
     color: var(--accent);
     font-weight: 700;
   }
-
+ 
   /* Collapsible older roles */
   details {
     margin-top: 12px;
@@ -417,7 +417,7 @@
   }
   details[open] summary::after { content: ' ▴'; }
   details[open] summary { margin-bottom: 16px; }
-
+ 
   /* Cheetah box */
   .cheetah-box {
     border-left: 2px solid var(--accent);
@@ -441,14 +441,14 @@
   }
   .linkedin-link:hover { color: var(--highlight); border-bottom-color: var(--highlight); }
   .linkedin-link::after { content: ' →'; }
-
+ 
   /* Education */
   .education-line {
     font-size: 13.5px;
     color: var(--ink-soft);
     margin-bottom: 4px;
   }
-
+ 
   /* Footer */
   footer {
     margin-top: 48px;
@@ -459,7 +459,7 @@
     text-align: center;
     letter-spacing: 0.04em;
   }
-
+ 
   /* Mobile */
   @media (max-width: 640px) {
     body { padding: 20px 14px 60px; font-size: 13.5px; }
@@ -469,7 +469,7 @@
     .toggle-pill, .print-button { align-self: center; }
     .role-header { flex-direction: column; gap: 2px; }
   }
-
+ 
   /* Print */
   /* Fixed A4 page geometry so the saved PDF is consistent across browsers. */
   @page { size: A4; margin: 12mm 13mm 11mm; }
@@ -492,7 +492,7 @@
     body > *:not(.page) { display: none !important; }
     .toggle-bar { display: none; }
     .print-button { display: none; }
-
+ 
     /* AI Method simulations (role-level "what I would have done" callouts)
        stay OUT of the PDF by default; included only in AI Method view.
        Bridges and .always boxes are real content and always print. */
@@ -508,13 +508,13 @@
     }
     html.print-ai .ai-method .ai-outcome,
     #viewToggle:checked ~ .page .ai-method .ai-outcome { font-size: 8.6pt; margin-top: 3px; }
-
+ 
     details { border-top: none; padding-top: 0; }
     /* Force the "Earlier career" fold fully open in print, regardless of its
        on-screen open/closed state, on every engine. */
     details > *:not(summary) { display: block !important; content-visibility: visible !important; }
     details summary { display: none; }
-
+ 
     /* Only protect small, self-contained blocks from splitting. */
     .ai-method, .bridge, .method-diagram, .cs-callout { page-break-inside: avoid; }
     /* Roles flow across page boundaries in BOTH views. A role is allowed to
@@ -539,9 +539,9 @@
 </style>
 </head>
 <body>
-
+ 
 <input type="checkbox" id="viewToggle">
-
+ 
 <div class="toggle-bar" role="region" aria-label="View toggle">
   <div class="toggle-label">
     <span class="strong">Reading view:</span> <span class="strong">Track Record</span> shows what I delivered. <span class="strong">AI Method</span> reveals, across my historical roles, the use cases I would have resolved with AI — for quality outcomes, at rapid pace, within fixed capacity.
@@ -552,9 +552,9 @@
   </label>
   <a id="downloadPdf" class="print-button" href="cv-track-record.pdf" download="Bobby Khan CV.pdf" role="button" aria-label="Download CV as PDF">Download PDF</a>
 </div>
-
+ 
 <div class="page">
-
+ 
 <header>
   <h1 class="name">BOBBY KHAN</h1>
   <p class="tagline">Program Manager | Agile Delivery Lead | Transformation &amp; Regulated Delivery</p>
@@ -565,7 +565,7 @@
     Australian Citizen
   </p>
 </header>
-
+ 
 <section>
   <h2>Professional Summary</h2>
   <p class="lead">
@@ -578,7 +578,7 @@
     Champions innovation and efficiency, most recently through hands-on AI-augmented delivery (independent work): routing frontier AI models to produce first-draft artefacts for human review, compressing analyse–build–test effort while keeping human judgement in control.
   </p>
 </section>
-
+ 
 <section>
   <h2>AI-Augmented Delivery</h2>
   <p>Hands-on use of frontier AI to accelerate delivery work, with human judgement owning every decision:</p>
@@ -590,24 +590,24 @@
   </ul>
   <p style="font-size:13px;color:var(--ink-muted);">Proven end-to-end as an AI-augmented delivery case study (Cheetah Squad PPP) — detailed at the end of this CV.</p>
 </section>
-
+ 
 <section>
   <h2>Core Competencies</h2>
   <p class="pipe-list">
     Agile Delivery Leadership (multi-squad) &nbsp;|&nbsp; Full-Lifecycle Delivery — Design → Build → Test → Release (SDLC) &nbsp;|&nbsp; Team Coaching &amp; People Leadership &nbsp;|&nbsp; Continuous Improvement &nbsp;|&nbsp; Delivery Risk &amp; Dependency Management &nbsp;|&nbsp; Capacity &amp; Resource Planning &nbsp;|&nbsp; Stakeholder Management (C-Suite) &nbsp;|&nbsp; Regulated Lifecycle Delivery (DDO, Anti-Hawking, NCCP, BCOP) &nbsp;|&nbsp; Business &amp; Process Analysis &nbsp;|&nbsp; CRM Implementation (Salesforce) &nbsp;|&nbsp; Change Management &nbsp;|&nbsp; Business Case Development, Budgeting &amp; Forecasting &nbsp;|&nbsp; Vendor &amp; Partner Management &nbsp;|&nbsp; Operating Model Design &nbsp;|&nbsp; AI-Augmented Delivery &amp; Governance (human-in-the-loop) &nbsp;|&nbsp; Prompt Engineering &amp; Model Routing &nbsp;|&nbsp; Financial Analysis &amp; Modelling &nbsp;|&nbsp;
   </p>
 </section>
-
+ 
 <section>
   <h2>Tools &amp; Technology</h2>
   <p class="pipe-list">
     Salesforce CRM &nbsp;|&nbsp; Microsoft 365 &nbsp;|&nbsp; Microsoft Copilot &nbsp;|&nbsp; Jira &nbsp;|&nbsp; Confluence &nbsp;|&nbsp; Power BI &nbsp;|&nbsp; Advanced Excel &amp; Financial Modelling &nbsp;|&nbsp; Azure DevOps &nbsp;|&nbsp; Adobe Experience Manager &nbsp;|&nbsp; Frontier AI Models (Claude, Gemini) &nbsp;|&nbsp; GitHub &nbsp;|&nbsp; Google Sheets API
   </p>
 </section>
-
+ 
 <section>
   <h2>Professional Experience</h2>
-
+ 
   <div class="role">
     <div class="role-header">
       <span class="role-title">Perpetual Wealth Management — Delivery Lead</span>
@@ -617,8 +617,8 @@
     <ul>
       <li>Secured funding by developing a business case.</li>
       <li>Recruited and led a team of Business Analysts, Salesforce Architects, Data Architects (for data migration), and Testers.</li>
-      <li>Defined and documented end-to-end business requirements, engaging stakeholders across the newly acquired entity to ensure solution fit.</li>
-      <li>Designed, built, and tested the CRM solution, which went live successfully.</li>
+      <li>Led definition and documentation of end-to-end business requirements, engaging stakeholders across the newly acquired entity to ensure solution fit.</li>
+      <li>Led design, build, and test of the CRM solution, which went live successfully.</li>
       <li>Managed delivery within budget, maintaining scope integrity across a complex multi-entity data migration.</li>
       <li>Managed daily scrums, RAID, user story supervision, test plan, and other project deliverables.</li>
       <li>Coached business analysts and developers to lift analysis and build quality, reducing rework and improving delivery efficiency.</li>
@@ -633,7 +633,7 @@
       <span class="ai-outcome">Outcome: change-management artefacts produced in a fraction of the usual time, accelerating user readiness and go-live.</span>
     </div>
   </div>
-
+ 
   <div class="role">
     <div class="role-header">
       <span class="role-title">Westpac Banking Corporation — Program Manager / Strategy Service Owner / Business Design Lead</span>
@@ -642,11 +642,11 @@
     <p class="role-sub">Regulatory compliance, strategy, and business design across Consumer and Business Banking ($10M–$18M capex)</p>
     <ul>
       <li>Led delivery of Design &amp; Distribution Obligation (DDO) regulatory solution across 10+ technology systems for Consumer Products (Deposits, Credit Cards, Personal Loans, Home Loan Variation), distributed digitally — $18M capex, delivered on time and on budget (Sep 2021).</li>
-      <li>Led CRM systems uplift for Business Distribution to embed Anti-Hawking compliance (~$7M capex). Recruited and directed a team of 3 Data Scientists (SAS and Oracle) to build 10 automated compliance-breach alerts for post-go-live monitoring, and Data Architects to execute data migration, delivering all key items on time and on budget.</li>
+      <li>Led CRM systems uplift for Business Distribution to embed Anti-Hawking compliance (~$7M capex). Recruited and directed a team of 3 Data Scientists (SAS and Oracle) to build 10 automated compliance-breach alerts for post-go-live monitoring, delivering all key items on time and on budget.</li>
       <li>Applied Agile delivery practices across multi-squad programs — daily scrums, RAID management, user story governance, and integrated test planning across 10+ technology systems.</li>
       <li>Developed business case to build Digital ID capabilities targeting non-interest income growth; successfully secured funding for discovery phase.</li>
       <li>Led analysis of market share loss drivers for Consumer Finance products ($1.5B+ asset base).</li>
-      <li>Managed Consumer Finance FY25 BSR submission (~$110M annual capex) through to March 2024.</li>
+      <li>Managed Consumer Finance FY25 BSR submission through to March 2024.</li>
       <li>Developed prioritisation framework for Program UNITE technology simplification (capex ~$2B over 5 years), consolidating 180+ tech platforms into fewer than 60.</li>
       <li>Coached squad members and business analysts across the program to raise requirements and engineering quality, cutting downstream rework.</li>
       <li>Embedded continuous improvement through regular sprint retrospectives, sharpening SME engagement and squad throughput.</li>
@@ -660,7 +660,7 @@
       <span class="ai-outcome">Outcome: alert design and testing accelerated, protecting go-live on time, budget, and quality.</span>
     </div>
   </div>
-
+ 
   <div class="role">
     <div class="role-header">
       <span class="role-title">Woolworths Group — Strategy Consultant, Transformation</span>
@@ -670,7 +670,7 @@
       <li>Conducted diagnostic review of $150M annual contract labour spend, identifying ~$15M in savings across 5 key initiatives.</li>
     </ul>
   </div>
-
+ 
   <div class="role">
     <div class="role-header">
       <span class="role-title">Bank of Queensland — Head of Strategy, Business Bank</span>
@@ -683,7 +683,7 @@
       <li>Prepared multiple Board papers on business progress and risk reviews.</li>
     </ul>
   </div>
-
+ 
   <div class="role">
     <div class="role-header">
       <span class="role-title">Accenture Consulting — Senior Manager</span>
@@ -697,7 +697,7 @@
       <li>Developed $40M sales pipeline through client relationship management.</li>
     </ul>
   </div>
-
+ 
   <div class="role">
     <div class="role-header">
       <span class="role-title">Westpac Banking Corporation — Senior Manager, Portfolio Development</span>
@@ -711,10 +711,10 @@
       <li>Relieved Head of role for 6 weeks, managing team and stakeholders across Customer Complaints, Risk, and Credit.</li>
     </ul>
   </div>
-
+ 
   <details>
     <summary>Earlier career (2000–2014)</summary>
-
+ 
     <div class="role">
       <div class="role-header">
         <span class="role-title">Transport for NSW — Consultant</span>
@@ -724,7 +724,7 @@
         <li>Delivered recommendations to reduce third-party spend by 10%.</li>
       </ul>
     </div>
-
+ 
     <div class="role">
       <div class="role-header">
         <span class="role-title">Xchanging / DXC — Head of Commercial and Strategy</span>
@@ -737,7 +737,7 @@
         <li>Structured complex outsourcing transaction pricing ensuring commercial sustainability.</li>
       </ul>
     </div>
-
+ 
     <div class="role">
       <div class="role-header">
         <span class="role-title">Westpac Banking Corporation — Manager, Strategy &amp; Transaction</span>
@@ -751,7 +751,7 @@
         <li>Ran RFP and vendor negotiation for Basel II data warehouse outsourcing, achieving 15% savings.</li>
       </ul>
     </div>
-
+ 
     <div class="role">
       <div class="role-header">
         <span class="role-title">Country Energy — Analyst, Corporate Finance</span>
@@ -762,7 +762,7 @@
         <li>Post-implementation review identified 4% margin improvement opportunity.</li>
       </ul>
     </div>
-
+ 
     <div class="role">
       <div class="role-header">
         <span class="role-title">Telenor — Deputy Manager, Commercial Strategy</span>
@@ -774,11 +774,11 @@
     </div>
   </details>
 </section>
-
+ 
 <section>
   <h2>AI-Augmented Delivery Case Study — Cheetah Squad PPP</h2>
   <p>A case study in delivering faster with AI while keeping full control — using Cheetah Squad PPP, a predictive cycling performance platform (Apr 2026 – Present), as the vehicle.</p>
-
+ 
   <div class="cheetah-box">
     <div class="cs-callout">
       <span class="cs-head">Accelerators</span>A repeatable loop where AI accelerates each stage and a human owns the gate between them: Research (AI surfaces the critical concepts, evidence and trends → human confirms relevance and sets the business outcome per spec) → Analysis &amp; Design (AI drafts business analysis and solution/algorithm design → human pressure-tests for accuracy) → Build &amp; Test (AI builds and tests → human validates the results) → Deploy.
@@ -798,24 +798,33 @@
     <p>Broader details in LinkedIn Projects: <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener" style="color:var(--accent);">linkedin.com/in/khanbobby</a></p>
   </div>
 </section>
-
+ 
 <section>
   <h2>Education</h2>
   <p class="education-line">Master of Commerce (Finance) — University of Sydney &nbsp;·&nbsp; Dec 2003</p>
   <p class="education-line">Bachelor of Business Administration — IBA, University of Dhaka &nbsp;·&nbsp; Dec 1998</p>
 </section>
-
+ 
 <section>
   <h2>Referees</h2>
   <p class="lead">Available on request. LinkedIn recommendations available at <a href="https://linkedin.com/in/khanbobby" target="_blank" rel="noopener" style="color:var(--accent);">linkedin.com/in/khanbobby</a>.</p>
 </section>
-
+ 
+<section>
+  <h2>Recommendation (please refer to LinkedIn for details)</h2>
+  <ul>
+    <li>“Bobby took over and delivered the Digital stream Design and Distribution Obligations (DDO) Program which was one of many workstreams of the DDO portfolio. He was always professional in his dealings with stakeholders and always had his sights on the outcomes and meeting the required deadlines. It was a challenging environment with frequent change requirements from business stakeholders, however, with his excellent technical knowledge, Bobby was always able to deliver the required results. Always ready with a cheerful disposition and a can-do attitude. I would be happy to work with Bobby again.” – Raffaella Massaioli, former Portfolio Director, Westpac</li>
+    <li>“Bobby is a true professional with well balanced IQ & EQ. Bobby has a natural curiosity which drives him to ask questions that gets to the core issues quickly. He is a clear and lateral thinker, has a solid grasp across the end to end value chain, and prides himself on delivering practical solutions. Bobby’s approach is taken with empathy to the broader team which helps him forge true partnerships. With a strong foundation in strategy and execution, he brings high energy and persistence to deliver meaningful outcomes. I recommend him for his valuable contribution.” – Stewart Creighton, former Head of Strategic Alliance & Op Lease, Westpac Specialist Finance</li>
+    <li>“Bobby worked in my sales team. He is an astute commercial manager, has a very solid grasp of technical commercial aspects of large deals and understands and develops sound strategies required to complete deals. He is also very proactive, hard working and always delivers in excess of expectations” – Mark Thompson, former Managing Director, Xchanging Australia</li>
+  </ul>
+</section>
+ 
 <footer>
   Bobby Khan &nbsp;·&nbsp; CV &nbsp;·&nbsp; 2026
 </footer>
-
+ 
 </div>
-
+ 
 <script>
   // When "Save PDF" is tapped, flag whether AI Method is the selected view.
   // The print stylesheet uses html.print-ai to decide what goes into the PDF.
@@ -842,7 +851,7 @@
       window.__reclose = null;
     }
   });
-
+ 
   // Point the Download PDF link at the pre-rendered A4 file that matches the
   // selected view (Track Record vs AI Method). Both files live next to this
   // HTML in the repo, so everyone downloads the same standard A4 PDF.
@@ -859,6 +868,7 @@
     syncDownload();
   })();
 </script>
-
+ 
 </body>
 </html>
+ 
