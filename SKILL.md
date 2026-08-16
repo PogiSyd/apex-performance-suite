@@ -50,16 +50,25 @@ reader never misreads scope.
 - Correct: "~$7M stream budget I owned end to end."
 - Also an owned figure, on the same footing as the DDO capex.
 
-**~$1B — Bank of Queensland (Asset Finance)**
-- This is a MARKET / PORTFOLIO-SCALE figure — the size of the book Bobby operated
-  within. It is NOT a personal delivery claim ("I delivered $1B" is wrong).
-- Omit by default. Most roles do not need it.
-- If it genuinely sets useful context (the scale of environment operated in), it
-  may be used — but it must be (a) explicitly labelled as market/portfolio scale,
-  and (b) kept physically clear of the $18M and ~$7M figures so the owned numbers
-  never blur into the market-scale one.
+**~$1B incremental asset over 5 years — Bank of Queensland (Asset Finance)**
+- This is a BUSINESS / PORTFOLIO-SCALE figure — the size of the growth over 5 years, Bobby identified can be delivered through implementing the strategy. $1B is the ceiling of the opportunity
+- It is a 5 year growth opportunity identification amount.
+- is NOT a personal delivery claim ("I delivered $1B" is wrong).
 
-**General rule:** keep owned-budget figures (DDO, Anti-Hawking) visually and
+**~$700M+ footing — Bank of Queensland (Asset Finance)**  
+- This is a BUSINESS / PORTFOLIO-SCALE figure — the size of growth opportunity Bobby has identified, that can be delivered through implementing the strategy
+- It is NOT a personal delivery claim ("I delivered $700M+" is wrong).
+
+**Context and General rule:**  
+
+- Bobby has worked across multiple functional domains Strategy - Transformation Delivery - Procurement - Business Development / Sales - Corporate Finance as outlined in the CV
+- Bobby has a well rounded skill set around hard (problem solving, numeric analysis, project management, etc), soft (communication, leadership, influencing etc)
+Professional Summary to outline the experiences based on which I am pitching for this role. Cover letter to capture this pitch in sync
+- All experiences are shown chronologically, highlighting the ones to strengthen my candidacy,
+- Retain the recommendations
+- Produce CV and cover letter in docx
+- Relevant sections will be highlighted in bold 
+- Professional summary keep owned-budget figures (DDO, Anti-Hawking) visually and
 rhetorically separate from any market/portfolio-scale figure (BoQ). Owned numbers
 carry weight precisely because they are cleanly Bobby's; do not dilute them.
 
