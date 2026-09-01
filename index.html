@@ -788,13 +788,13 @@
       <span class="cs-head">Accelerators</span>A repeatable loop where AI accelerates each stage and a human owns the gate between them: Research (AI surfaces the critical concepts, evidence and trends → human confirms relevance and sets the business outcome per spec) → Analysis &amp; Design (AI drafts business analysis and solution/algorithm design → human pressure-tests for accuracy) → Build &amp; Test (AI builds and tests → human validates the results) → Deploy.
     </div>
     <div class="cs-callout">
-      <span class="cs-head">Methodology</span>Spec-driven delivery: a canonical ARCHITECTURE document is the single source of truth and change gate, with a To Do document holding scope, used to plan each increment and sprint. No change ships without an ARCHITECTURE-and-scope diff in the same pull request — keeping work small, sequenced and traceable.
+      <span class="cs-head">Methodology</span>Spec-driven delivery: a canonical ARCHITECTURE document is the single source of truth and change gate, with a To Do document holding scope, used to plan each increment and sprint. No change ships without an ARCHITECTURE-and-scope diff in the same pull request — keeping work small, sequenced and traceable. Token economics is managed as a delivery cost in its own right, through routing each task to the model that fits it and orienting from a knowledge graph of the codebase rather than reading whole files.
     </div>
     <div class="cs-callout">
       <span class="cs-head">Governance</span>Human-in-the-loop as the control, not a step: senior judgement owns and signs off every decision. AI output is validated before release by an automated safety harness of 851 tests across 58 suites, with a pre-commit gate blocking any change that fails it, and kept citation-anchored, so every contribution is traceable and auditable.
     </div>
     <div class="cs-callout">
-      <span class="cs-head">Tools</span>Claude Opus (reasoning, architecture, code review) and Gemini Pro (research), with explicit model routing for cost and task fit; GitHub Codespaces with version-controlled repos and sprint-based PRs; Python / Streamlit; MotherDuck (cloud DuckDB); Google Cloud for authentication.
+      <span class="cs-head">Tools</span>Claude Opus 5 through Claude Desktop and Claude Code, with Gemini for deep research; VS Code and version-controlled GitHub repos with sprint-based PRs; the delivery loop itself codified as reusable skills and dedicated review subagents; Python / Streamlit; MotherDuck (cloud DuckDB) as the persistence layer; Google Cloud for authentication.
     </div>
     <div class="cs-callout">
       <span class="cs-head">Outcomes</span>Designed, built and shipped solo to a working MVP in six weeks, with more iterations per sprint and change requests absorbed within baseline, and sustained since: five months of solo delivery across 703 commits, persistence migrated to a cloud data warehouse under a versioned schema, and a live tester cohort running on managed authentication. Available to demonstrate on request.
