@@ -509,6 +509,11 @@
     html.print-ai .ai-method .ai-outcome,
     #viewToggle:checked ~ .page .ai-method .ai-outcome { font-size: 8.6pt; margin-top: 3px; }
  
+    /* Cheetah Squad case study callouts: compact in print so both views
+       keep to 6 pages. On-screen size is unaffected. */
+    .cs-callout { font-size: 8.9pt; line-height: 1.36; padding: 6px 10px; margin: 5px 0; }
+    .cs-callout .cs-head { margin-bottom: 3px; }
+
     details { border-top: none; padding-top: 0; }
     /* Force the "Earlier career" fold fully open in print, regardless of its
        on-screen open/closed state, on every engine. */
